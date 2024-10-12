@@ -21,6 +21,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/convention-plugins" />
+            <option value="$PROJECT_DIR$/open-closed" />
           </set>
         </option>
       </GradleProjectSettings>
