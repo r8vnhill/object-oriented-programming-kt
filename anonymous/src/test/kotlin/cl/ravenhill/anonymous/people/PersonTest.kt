@@ -5,8 +5,10 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.Gen
 import io.kotest.property.arbitrary.map
-import io.kotest.property.arbitrary.string
+import io.kotest.property.arbs.name
 import io.kotest.property.checkAll
+
+private const val WELCOME_MESSAGE = "Welcome to the team!"
 
 class PersonTest : FreeSpec({
     "A person" - {
@@ -14,17 +16,22 @@ class PersonTest : FreeSpec({
             "should return a greeting according to the person's name" {
                 checkAll(arbPerson()) { person ->
                     person.greet() shouldBe
-                            "Hello, ${person.name}. Welcome to the team!"
+                            "Hello, ${person.name}. $WELCOME_MESSAGE"
                 }
             }
         }
     }
 })
 
-private fun arbPerson(): Gen<Person> = Arb.string()
+/**
+ * Generates a random `Person` instance for property-based testing.
+ *
+ * @return A generator of `Person` objects with random names and predefined behavior.
+ */
+private fun arbPerson(): Gen<Person> = Arb.name()
     .map { name ->
-        object : AbstractPerson(name) {
+        object : AbstractPerson("$name") {
             override fun someComplexBehavior() =
-                "Welcome to the team!"
+                WELCOME_MESSAGE
         }
     }
