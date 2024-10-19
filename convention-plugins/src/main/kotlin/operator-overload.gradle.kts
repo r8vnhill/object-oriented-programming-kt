@@ -14,18 +14,22 @@ tasks.register("setupOperatorOverloadModule") {
 
         // Crear directorios y archivos para Complex.kt y ComplexTest.kt si no existen
         val groupPath = rootProject.group.toString().replace(".", "/")
-        listOf("main" to "Complex.kt", "test" to "ComplexTest.kt")
-            .forEach { (type, fileName) ->
-                val dir = rootProject.file("$baseDir/src/$type/kotlin/$groupPath/complex")
-                    .apply { mkdirs() }
-                dir.resolve(fileName).apply {
-                    if (!exists()) {
-                        writeText("package ${rootProject.group}.complex\n\n")
-                        println("File created: $this")
-                    } else {
-                        println("File already exists: $this")
-                    }
+        val main = "main"
+        val test = "test"
+        listOf(
+            main to "Repository.kt", main to "Entity.kt", main to "Serializable.kt",
+            test to "RepositoryTest.kt"
+        ).forEach { (type, fileName) ->
+            val dir = rootProject.file("$baseDir/src/$type/kotlin/$groupPath/repo")
+                .apply { mkdirs() }
+            dir.resolve(fileName).apply {
+                if (!exists()) {
+                    writeText("package ${rootProject.group}.repo\n\n")
+                    println("File created: $this")
+                } else {
+                    println("File already exists: $this")
                 }
             }
+        }
     }
 }
