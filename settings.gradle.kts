@@ -17,5 +17,6 @@ dependencyResolutionManagement {
 
 include(
     ":open-closed",
-    ":anonymous"
+    ":anonymous",
+    ":operator-overload",
 )

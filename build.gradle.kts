@@ -1,4 +1,5 @@
 plugins {
+    id("operator-overload")
     id("jvm.conventions")
     alias(libs.plugins.detekt)
 }
@@ -24,4 +25,13 @@ subprojects {
         detektPlugins("$detektFormattingModule:$detektFormattingVersion")
         testImplementation(kotestBundle)
     }
+}
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+}
+repositories {
+    mavenCentral()
+}
+kotlin {
+    jvmToolchain(21)
 }
