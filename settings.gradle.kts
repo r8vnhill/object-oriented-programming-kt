@@ -19,4 +19,5 @@ include(
     ":open-closed",
     ":anonymous",
     ":operator-overload",
+    ":static"
 )
