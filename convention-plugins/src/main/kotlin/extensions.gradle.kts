@@ -5,7 +5,7 @@ val (main, test) = listOf("main", "test").map { baseDir.resolve("src/$it/kotlin"
 
 tasks.register("setupExtensionsModule") {
     group = "setup"
-    description = "Creates the base module and files for the Data-Driven Testing project"
+    description = "Creates the base module and files for the extension methods lesson"
 
     doLast {
         createModule()
