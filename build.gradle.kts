@@ -2,6 +2,7 @@ plugins {
     id("anonymous")
     id("operator-overload")
     id("static")
+    id("extensions")
     id("jvm.conventions")
     alias(libs.plugins.detekt)
 }
