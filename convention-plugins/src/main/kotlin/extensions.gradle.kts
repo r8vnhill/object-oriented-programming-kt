@@ -1,9 +1,9 @@
-val baseName = "ddt"
+val baseName = "extensions"
 val baseDir: File = rootProject.file(baseName)
 val printError: (String) -> Unit = System.err::println
 val (main, test) = listOf("main", "test").map { baseDir.resolve("src/$it/kotlin") }
 
-tasks.register("setupDdtModule") {
+tasks.register("setupExtensionsModule") {
     group = "setup"
     description = "Creates the base module and files for the Data-Driven Testing project"
 
