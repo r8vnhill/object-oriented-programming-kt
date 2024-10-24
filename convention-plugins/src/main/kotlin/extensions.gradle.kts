@@ -2,9 +2,7 @@ import tasks.ModuleSetupTask
 
 tasks.register<ModuleSetupTask>("setupExtensionsModule") {
     description = "Creates the base module and files for the Data-Driven Testing project"
-
     moduleName.set("extensions")
-
     doLast {
         createFiles(
             packageName = "utils",
