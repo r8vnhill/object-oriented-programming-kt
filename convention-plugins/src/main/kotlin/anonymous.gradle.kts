@@ -9,6 +9,7 @@ tasks.register("setupAnonymousModule") {
         val main = "main"
         val test = "test"
         val anonymous = "anonymous"
+
         createFiles(anonymous, test to "AnonymousObjectTest.kt")
         createFiles(
             "$anonymous/validation",

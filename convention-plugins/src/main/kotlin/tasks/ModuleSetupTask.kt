@@ -1,6 +1,7 @@
 package tasks
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
@@ -20,8 +21,13 @@ private val printError: (String) -> Unit = System.err::println
  * @property test The directory for the module's test source files (`src/test/kotlin`).
  */
 abstract class ModuleSetupTask : DefaultTask() {
+
+    init {
+        group = "setup"
+    }
+
     @get:Input
-    abstract var moduleName: String
+    abstract val moduleName: Property<String>
 
     @get:Internal
     val main

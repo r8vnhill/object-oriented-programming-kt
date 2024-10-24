@@ -3,7 +3,7 @@ import tasks.ModuleSetupTask
 tasks.register<ModuleSetupTask>("setupStaticModule") {
     group = "setup"
     description = "Creates the necessary files for the lesson on static members"
-    moduleName = "static"
+    moduleName.set("static")
     doLast {
         createFiles(
             packageName = "geometry",

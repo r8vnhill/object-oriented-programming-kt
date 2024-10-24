@@ -3,6 +3,7 @@ plugins {
     id("operator-overload")
     id("static")
     id("extensions")
+    id("infix")
     id("jvm.conventions")
     alias(libs.plugins.detekt)
 }
