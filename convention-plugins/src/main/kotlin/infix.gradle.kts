@@ -2,7 +2,7 @@ import tasks.ModuleSetupTask
 
 tasks.register<ModuleSetupTask>("setupInfixModule") {
     description = "Creates the base module and files for the infix functions lesson"
-    moduleName.set("infix")
+    module.set("infix")
 
     doLast {
         createFiles(
@@ -11,7 +11,7 @@ tasks.register<ModuleSetupTask>("setupInfixModule") {
         )
         createFiles(
             packageName = "validation",
-            test to "ValidationTest.kt",
+            test to "HaveMinimumLengthTest.kt",
         )
     }
 }
