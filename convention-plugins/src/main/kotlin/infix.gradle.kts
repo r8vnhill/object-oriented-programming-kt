@@ -11,7 +11,7 @@ tasks.register<ModuleSetupTask>("setupInfixModule") {
         )
         createFiles(
             packageName = "validation",
-            test to "ValidationTest.kt",
+            test to "HaveMinimumLengthTest.kt",
         )
     }
 }
