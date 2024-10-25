@@ -22,3 +22,5 @@ include(
     ":static",
     "extensions"
 )
+
+include("infix")
