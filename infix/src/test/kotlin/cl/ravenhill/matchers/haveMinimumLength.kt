@@ -1,7 +1,25 @@
 package cl.ravenhill.matchers
 
-class UserName(val value: String)
+import cl.ravenhill.users.Username
+import io.kotest.matchers.Matcher
+import io.kotest.matchers.MatcherResult
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldNot
 
-infix fun UserName.hasMinimumLength(length: Int): Boolean {
-    return value.length >= length
+fun haveMinimumLength(length: Int) = Matcher<Username> { username ->
+    MatcherResult(
+        username.value.length >= length,
+        { "Username should have a minimum length of $length" },
+        { "Username should not have a minimum length of $length" }
+    )
+}
+
+infix fun Username.shouldHaveMinimumLength(length: Int): Username {
+    this should haveMinimumLength(length)
+    return this
+}
+
+infix fun Username.shouldNotHaveMinimumLength(length: Int): Username {
+    this shouldNot haveMinimumLength(length)
+    return this
 }
