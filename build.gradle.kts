@@ -1,11 +1,12 @@
 plugins {
+    alias(libs.plugins.detekt)
     id("anonymous")
-    id("operator-overload")
-    id("static")
     id("extensions")
     id("infix")
     id("jvm.conventions")
-    alias(libs.plugins.detekt)
+    id("open-closed")
+    id("operator-overload")
+    id("static")
 }
 
 val projectGroup = extra["object-oriented-programming.group"]!! // Throws an exception if the property is not found
