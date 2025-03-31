@@ -16,7 +16,6 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":open-closed",
     ":anonymous",
     ":operator-overload",
     ":static",
@@ -24,3 +23,4 @@ include(
 )
 
 include("infix")
+include("open-closed")
